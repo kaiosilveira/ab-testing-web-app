@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import TasksScreen from './screens/Tasks';
-import Home from './screens/Home';
+import { Home, TasksScreen } from './screens';
 import * as S from './styles';
 
 const App = () => {
