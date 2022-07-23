@@ -1,4 +1,5 @@
 import TaskBlocks from '../../components/TaskBlocks';
+import * as S from './styles';
 
 const TASK_BLOCK_ITEMS = [
   {
@@ -22,7 +23,12 @@ const TASK_BLOCK_ITEMS = [
 ];
 
 const TasksScreen = () => {
-  return <TaskBlocks taskBlockItems={TASK_BLOCK_ITEMS} />;
+  return (
+    <S.TasksScreen>
+      <h1>Your tasks</h1>
+      <TaskBlocks taskBlockItems={TASK_BLOCK_ITEMS} />
+    </S.TasksScreen>
+  );
 };
 
 export default TasksScreen;
