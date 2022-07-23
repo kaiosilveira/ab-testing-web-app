@@ -26,7 +26,7 @@ const TasksScreen = () => {
   return (
     <S.TasksScreen>
       <h1>Your tasks</h1>
-      <TaskBlocks taskBlockItems={TASK_BLOCK_ITEMS} />
+      <TaskBlocks items={TASK_BLOCK_ITEMS} />
     </S.TasksScreen>
   );
 };

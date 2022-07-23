@@ -1,8 +1,8 @@
 import TaskItem from './TaskItem';
 
-export const TaskBlocks = ({ taskBlockItems }) => (
+export const TaskBlocks = ({ items }) => (
   <div>
-    {taskBlockItems.map(taskBlock => (
+    {items.map(taskBlock => (
       <TaskItem
         key={taskBlock.id}
         title={taskBlock.title}
