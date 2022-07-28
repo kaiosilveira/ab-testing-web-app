@@ -19,7 +19,7 @@ const TASK_BLOCK_ITEMS = [
 describe('TaskList', () => {
   describe('UI', () => {
     it('should render a list of task blocks', () => {
-      render(<TaskBlocks taskBlockItems={TASK_BLOCK_ITEMS} />);
+      render(<TaskBlocks items={TASK_BLOCK_ITEMS} />);
 
       const gettingStartedBox = screen.getByLabelText('Getting started task block');
       const ourSuggestionsBox = screen.getByLabelText('Our suggestions task block');
