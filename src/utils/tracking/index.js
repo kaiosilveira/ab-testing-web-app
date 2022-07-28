@@ -28,3 +28,7 @@ export const DataLayerProvider = ({ children }) => {
 export const useDataLayer = () => {
   return useContext(DataLayerStoreContext);
 };
+
+export const useTracking = () => {
+  return useContext(DataLayerDispatchContext);
+};
