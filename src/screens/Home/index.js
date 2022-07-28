@@ -1,9 +1,9 @@
-import { useContext, useEffect } from 'react';
-import { DataLayerDispatchContext } from '../../utils/tracking';
+import { useEffect } from 'react';
+import { useTracking } from '../../utils/tracking';
 import ToDoButton from '../../components/ToDoButton';
 
 const HomeScreen = () => {
-  const { fireEvent } = useContext(DataLayerDispatchContext);
+  const { fireEvent } = useTracking();
 
   useEffect(() => {
     fireEvent({ type: 'home_page', category: 'page_view_events', action: 'viewed' });
