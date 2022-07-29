@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import TaskItem from '.';
 
 describe('TaskItem', () => {
@@ -21,6 +21,24 @@ describe('TaskItem', () => {
       expect(titleBox).toBeInTheDocument();
       expect(descriptionBox).toBeInTheDocument();
       expect(taskCountBox).toBeInTheDocument();
+    });
+
+    it('should delegate click events to the handler', () => {
+      const handleClickFn = jest.fn();
+
+      render(
+        <TaskItem
+          title={title}
+          taskCount={taskCount}
+          description={description}
+          onClick={handleClickFn}
+        />
+      );
+
+      const item = screen.getByLabelText('Getting started task block');
+      fireEvent.click(item);
+
+      expect(handleClickFn).toHaveBeenCalledTimes(1);
     });
   });
 
