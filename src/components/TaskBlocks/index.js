@@ -1,16 +1,31 @@
 import TaskItem from './TaskItem';
+import { useTracking } from '../../utils/tracking';
 
-export const TaskBlocks = ({ items }) => (
-  <div>
-    {items.map(taskBlock => (
+export const TaskBlocks = ({ items }) => {
+  const { fireEvent } = useTracking();
+  const gettingStartedTaskGroup = items.find(i => i.friendlyId === 'getting_started_task_group');
+  const ourSuggestionsTaskGroup = items.find(i => i.friendlyId === 'our_suggestions_task_group');
+
+  const handleClick = action => fireEvent({ action, type: 'tasks', category: 'tasks_events' });
+
+  return (
+    <div>
       <TaskItem
-        key={taskBlock.id}
-        title={taskBlock.title}
-        description={taskBlock.description}
-        taskCount={taskBlock.taskCount}
+        key={gettingStartedTaskGroup.id}
+        title="Getting started"
+        description={gettingStartedTaskGroup.description}
+        taskCount={gettingStartedTaskGroup.taskCount}
+        onClick={() => handleClick('getting_started_task_block_clicked')}
       />
-    ))}
-  </div>
-);
+      <TaskItem
+        key={ourSuggestionsTaskGroup.id}
+        title="Our suggestions"
+        description={ourSuggestionsTaskGroup.description}
+        taskCount={ourSuggestionsTaskGroup.taskCount}
+        onClick={() => handleClick('our_suggestions_task_block_clicked')}
+      />
+    </div>
+  );
+};
 
 export default TaskBlocks;
