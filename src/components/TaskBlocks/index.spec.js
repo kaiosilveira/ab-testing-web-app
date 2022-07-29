@@ -19,6 +19,13 @@ const TASK_BLOCK_ITEMS = [
     description: 'Group of tasks that we think will help you move forward',
     taskCount: 2,
   },
+  {
+    id: 3,
+    friendlyId: 'becoming_a_pro_task_group',
+    title: 'Becoming a PRO',
+    description: 'Master our most advanced features with these tasks',
+    taskCount: 6,
+  },
 ];
 
 describe('TaskList', () => {
@@ -42,6 +49,12 @@ describe('TaskList', () => {
     it('should have a "Our suggestions" section', () => {
       render(<TaskBlocks items={TASK_BLOCK_ITEMS} />);
       const gettingStartedBox = screen.getByLabelText('Our suggestions task block');
+      expect(gettingStartedBox).toBeInTheDocument();
+    });
+
+    it('should have a "Becoming a PRO" section', () => {
+      render(<TaskBlocks items={TASK_BLOCK_ITEMS} />);
+      const gettingStartedBox = screen.getByLabelText('Becoming a PRO task block');
       expect(gettingStartedBox).toBeInTheDocument();
     });
   });
