@@ -9,7 +9,7 @@ describe('ToDoButton', () => {
       const fakeTrackingFn = jest.fn();
       const fakeNavigationFn = jest.fn();
       jest.spyOn(locationUtils, 'useLocation').mockReturnValue({ navigateTo: fakeNavigationFn });
-      jest.spyOn(trackingUtils, 'useTracking').mockReturnValue({ fireEvent: fakeTrackingFn });
+      jest.spyOn(trackingUtils, 'useTracking').mockReturnValue({ trackEvent: fakeTrackingFn });
 
       render(<ToDoButton />);
 
@@ -26,7 +26,7 @@ describe('ToDoButton', () => {
       const fakeTrackingFn = jest.fn();
       const fakeNavigationFn = jest.fn();
       jest.spyOn(locationUtils, 'useLocation').mockReturnValue({ navigateTo: fakeNavigationFn });
-      jest.spyOn(trackingUtils, 'useTracking').mockReturnValue({ fireEvent: fakeTrackingFn });
+      jest.spyOn(trackingUtils, 'useTracking').mockReturnValue({ trackEvent: fakeTrackingFn });
 
       render(<ToDoButton />);
 

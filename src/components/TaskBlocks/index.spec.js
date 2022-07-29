@@ -25,7 +25,7 @@ describe('TaskList', () => {
   const fakeTrackingFn = jest.fn();
 
   beforeEach(() => {
-    jest.spyOn(trackingUtils, 'useTracking').mockReturnValue({ fireEvent: fakeTrackingFn });
+    jest.spyOn(trackingUtils, 'useTracking').mockReturnValue({ trackEvent: fakeTrackingFn });
   });
 
   afterEach(() => {

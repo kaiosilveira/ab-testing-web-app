@@ -2,11 +2,11 @@ import TaskItem from './TaskItem';
 import { useTracking } from '../../utils/tracking';
 
 export const TaskBlocks = ({ items }) => {
-  const { fireEvent } = useTracking();
+  const { trackEvent } = useTracking();
   const gettingStartedTaskGroup = items.find(i => i.friendlyId === 'getting_started_task_group');
   const ourSuggestionsTaskGroup = items.find(i => i.friendlyId === 'our_suggestions_task_group');
 
-  const handleClick = action => fireEvent({ action, type: 'tasks', category: 'tasks_events' });
+  const handleClick = action => trackEvent({ action, type: 'tasks', category: 'tasks_events' });
 
   return (
     <div>

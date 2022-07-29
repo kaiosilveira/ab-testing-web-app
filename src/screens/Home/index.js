@@ -3,11 +3,11 @@ import { useTracking } from '../../utils/tracking';
 import ToDoButton from '../../components/ToDoButton';
 
 const HomeScreen = () => {
-  const { fireEvent } = useTracking();
+  const { trackEvent } = useTracking();
 
   useEffect(() => {
-    fireEvent({ type: 'home_page', category: 'page_view_events', action: 'viewed' });
-  }, [fireEvent]);
+    trackEvent({ type: 'home_page', category: 'page_view_events', action: 'viewed' });
+  }, [trackEvent]);
 
   return (
     <>
