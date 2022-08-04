@@ -34,3 +34,6 @@ jobs:
 
       - name: Run unit tests
         run: yarn test -- --watchAll=false --coverage
+
+      - name: Build
+        run: yarn build
