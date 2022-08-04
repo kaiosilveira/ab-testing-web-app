@@ -19,8 +19,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Install yarn
+        run: npm install -g yarn
+
       - name: Install dependencies
-        run: npm install
+        run: yarn
 
       - name: Cache dependencies
         uses: actions/cache@v2
@@ -30,4 +33,4 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn-lock.json') }}
 
       - name: Run unit tests
-        run: npm test -- --watchAll=false --coverage
+        run: yarn test -- --watchAll=false --coverage
