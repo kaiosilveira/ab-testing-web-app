@@ -11,20 +11,10 @@ const HomeScreen = () => {
     setFlags([
       {
         key: 'tasks',
-        variations: [
-          {
-            variant: 0,
-            description: 'Control group',
-            experimentName: 'Tasks-Experiment-Aug-2022',
-            experimentId: 'fdakjf-rerfdsf-qwerewr',
-          },
-          {
-            variant: 1,
-            description: 'Test group',
-            experimentName: 'Tasks-Experiment-Aug-2022',
-            experimentId: 'fdakjf-rerfdsf-qwerewr',
-          },
-        ],
+        variant: 1,
+        description: 'Test group',
+        experimentName: 'Tasks-Experiment-Aug-2022',
+        experimentId: 'fdakjf-rerfdsf-qwerewr',
       },
     ]);
   }, [setFlags]);

@@ -38,3 +38,4 @@ export const FeatureFlagsProvider = ({ children }) => {
 
 export const useFeatureFlagManagement = () => useContext(FeatureFlagsDispatchContext);
 export const useFeatureFlags = () => useContext(FeatureFlagsStoreContext).value;
+export const useFeatureFlag = key => useFeatureFlags().find(ff => ff.key === key);
