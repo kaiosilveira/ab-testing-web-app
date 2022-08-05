@@ -1,11 +1,29 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useTracking } from '../../utils/tracking';
 import ToDoButton from '../../components/ToDoButton';
 import { useFeatureFlagManagement } from '../../utils/feature-flags';
+import { useLocation } from 'react-router-dom';
+
+function useQueryParams() {
+  const { search } = useLocation();
+  return useMemo(() => new URLSearchParams(search), [search]);
+}
 
 const HomeScreen = () => {
   const { trackEvent } = useTracking();
-  const { setFlags } = useFeatureFlagManagement();
+  const { setFlags, overrideFlag } = useFeatureFlagManagement();
+  const queryParams = useQueryParams();
+
+  useEffect(() => {
+    try {
+      const [key, variant] = JSON.parse(queryParams.get('overrideExp'));
+      if (typeof key === 'string' && Number.isInteger(variant)) {
+        overrideFlag({ key, variant });
+      }
+    } catch (ex) {
+      console.debug('Failed to parse query string params.');
+    }
+  }, [queryParams, overrideFlag]);
 
   useEffect(() => {
     setFlags([
